@@ -78,3 +78,35 @@ def update_pic(name):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',name=name))
+
+@main.route('/like/<int:id>',methods = ['POST','GET'])
+@login_required
+def like(id):
+    get_blogs = Upvote.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for blog in get_blogs:
+        to_str = f'{blog}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_vote = Upvote(user = current_user, blog_id=id)
+    new_vote.save()
+    return redirect(url_for('main.index',id=id))
+
+@main.route('/dislike/<int:id>',methods = ['POST','GET'])
+@login_required
+def dislike(id):
+    blog = Downvote.get_downvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for b in blog:
+        to_str = f'{b}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.index',id=id))
+        else:
+            continue
+    new_downvote = Downvote(user = current_user, blog_id=id)
+    new_downvote.save()
+    return redirect(url_for('main.index',id = id))
