@@ -52,3 +52,29 @@ def updateprofile(name):
         user.save_u()
         return redirect(url_for('.profile',name = name))
     return render_template('profile/update.html',form =form)
+
+@main.route('/comment/<int:blog_id>', methods = ['POST','GET'])
+@login_required
+def comment(blog_id):
+    form = CommentForm()
+    blog = Blog.query.get(pitch_id)
+    all_comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+    if form.validate_on_submit():
+        comment = form.comment.data 
+        blog_id = blog_id
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment = comment,user_id = user_id,blog_id = blog_id)
+        new_comment.save_c()
+        return redirect(url_for('.comment', blog_id = blog_id))
+    return render_template('comment.html', form =form, blog = blog, all_comments=all_comments)
+
+@main.route('/user/<name>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(name):
+    user = User.query.filter_by(username = name).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',name=name))
