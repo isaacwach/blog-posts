@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <p class="navbar-brand">Spicy Pitches</p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inspirational Qoutes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Latert Blog Posts</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.new_pitch')}}">Post a blog post</a>
+          </li>
+          {% endif %}
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_authenticated %}
+  
+  
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}">{{current_user.username}}</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a></li>
+          </ul>
+  
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('auth.login')}}" style='margin-right:30px'><i
+                class="fas fa-sign-in-alt"></i>&nbsp; <strong>Log In</strong></a>
+          </li>
+          <li class="nav-item">
+            <a style='margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><i
+                class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
+          </li>
+          {%endif%}
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
