@@ -4,6 +4,7 @@ class Config:
     QUOTES_API_BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY=os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ayzaq:zacs@localhost/blogs'
 
     UPLOADS_PHOTOS_DEST ='app/static/photos'
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
@@ -18,3 +19,15 @@ class Config:
     @staticmethod
     def init_app(app):
         pass 
+
+class ProdConfig(Config):
+    pass
+
+class DevConfig(Config):
+    DEBUG=True
+
+config_options = {
+    'development':DevConfig,
+    'Production':ProdConfig,
+    'default':ProdConfig
+}
