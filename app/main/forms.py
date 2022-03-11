@@ -11,7 +11,7 @@ class CommentForm(FlaskForm):
     comment = TextAreaField('Leave a comment',validators=[DataRequired()])
     submit = SubmitField('Comment')
 
-class PitchForm(FlaskForm):
+class BlogForm(FlaskForm):
     title=TextAreaField('Title', validators=[DataRequired()])
     category=SelectMultipleField('Select Category', choices=[('Politics', 'Politics'), ('Sports', 'Sports'), ('Celebrity-gossip', 'Celebrity-gossip')], validators=[DataRequired()])
     post= TextAreaField('Enter your blog', validators=[DataRequired()])
