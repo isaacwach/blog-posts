@@ -35,6 +35,7 @@ def create_app(config_name):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
     app.config['SECRET_KEY']='os.environ.get(SECRET_KEY)'
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config['QUOTES_API_BASE_URL']='http://quotes.stormconsultancy.co.uk/random.json'
 
     login_manager.init_app(app)
     configure_uploads(app,photos)
