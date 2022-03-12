@@ -1,4 +1,6 @@
 import os 
+from dotenv import load_dotenv
+load_dotenv()
 
 class Config:
     QUOTES_API_BASE_URL='http://quotes.stormconsultancy.co.uk/random.json'

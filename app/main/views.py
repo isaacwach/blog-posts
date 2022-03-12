@@ -10,9 +10,9 @@ def index():
     blogs = Blog.query.all()
     politics = Blog.query.filter_by(category = 'Politics').all() 
     sports = Blog.query.filter_by(category = 'Sports').all()
-    celebrity = blog.query.filter_by(category = 'Celebrity-gossip').all()
+    celebrity = Blog.query.filter_by(category = 'Celebrity-gossip').all()
 
-    return render_template('index.html', pitches=pitches, politics=politics, sports=sports, celebrity=celebrity)
+    return render_template('index.html', blogs=blogs, politics=politics, sports=sports, celebrity=celebrity)
     
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required

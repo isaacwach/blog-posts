@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     secure_password = db.Column(db.String(300),nullable = False)
     bio = db.Column(db.String(300))
     profile_pic_path = db.Column(db.String())
-    pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
+    blogs = db.relationship('Blog', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote',backref='user',lazy='dynamic')
     downvote = db.relationship('Downvote',backref='user',lazy='dynamic')
@@ -69,7 +69,7 @@ class Upvote(db.Model):
 
     id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
     
 
     def save(self):
@@ -89,7 +89,7 @@ class Downvote(db.Model):
 
     id = db.Column(db.Integer,primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
     
 
     def save(self):
@@ -109,15 +109,15 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.Text(),nullable = False)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'),nullable = False)
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'),nullable = False)
 
     def save_c(self):
         db.session.add(self)
         db.session.commit()
 
     @classmethod
-    def get_comments(cls,pitch_id):
-        comments = Comment.query.filter_by(pitch_id=pitch_id).all()
+    def get_comments(cls,blog_id):
+        comments = Comment.query.filter_by(blog_id=blog_id).all()
 
         return comments
 
