@@ -125,3 +125,13 @@ class Comment(db.Model):
     def __repr__(self):
         return f'comment:{self.comment}'
 
+class Quote:
+    '''
+    class to instanciate news article objects
+    '''
+    def __init__(self, id, author, quote, permalink):
+        self.id = id
+        self.author = author
+        self.quote = quote
+        self.permalink = permalink
+
