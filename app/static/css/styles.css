@@ -1,0 +1,38 @@
+.pitches-main{
+    background-image: url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pitches-main h2{
+    color: white;
+    font-size: 55px;
+}
+.pitches-main p{
+    color: white;
+    font-size: 24px;
+}
+.pitches-main ul li a {
+    color: orange;
+    font-size: 20px;
+}
+.pitches-main ul li a:hover{
+    font-weight: bold;
+    border-bottom: 2px solid orange;
+}
+
+.main-base{
+    background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-signup{
+    color: white;
+}
+.main-signin{
+    color: white;
+}
+/* .categories{
+    color: white;
+} */
