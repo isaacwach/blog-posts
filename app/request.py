@@ -19,3 +19,16 @@ def get_source():
 
     return source_results
 
+def process_results(source_list):
+
+    source_results = []
+    for source_item in source_list:
+        id= source_item.get('id')
+        author= source_item.get('author')
+        quote= source_item.get('quote')
+        permalink = source_item.get('permalink')
+        if id:
+            source_object=Source(id,author, quote, permalink)
+            source_results.append(source_object)
+
+    return source_results
