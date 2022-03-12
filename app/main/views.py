@@ -2,8 +2,8 @@ from flask import render_template, redirect, request, url_for, abort
 from . import main 
 from flask_login import login_required, current_user
 from .. import db,photos
-from .forms import ProfileUpdate,PitchForm,CommentForm
-from ..models import User,Pitch,Comment,Upvote,Downvote
+from .forms import ProfileUpdate,BlogForm,CommentForm
+from ..models import User,Blog,Comment,Upvote,Downvote
 
 @main.route('/')
 def index():
