@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+    
+        <div  class="container pitches-main">
+                <h2 class="text-center">Spicy Pitches</h2>
+                <p class="text-center">Welcome to Spicy pitches. Please sign upread and comment on some common pitches based on your preferred category. You can also create and post your personal pitches</p>
+            <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+                <li class="nav-item" >
+                    <a class="nav-link" data-toggle="tab" href="#all"><strong>All Blogs</strong> </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#politics">Politics Blogs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#sports">Sports Blogs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#celebrity">Celebrity Gossip Blogs</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div  class="container tab-pane active" id="all"><br>
+                    {{ macro.display(blogs) }}
+                </div>
+                <div  class="container tab-pane fade" id="motivation"><br>
+                    {{ macro.display(politics)}}
+                </div>
+                <div  class="container tab-pane fade" id="jokes"><br>
+                    {{ macro.display(sports) }}
+                </div>
+                <div  class="container tab-pane fade" id="education"><br>
+                    {{ macro.display(celebrity) }}
+                    
+                </div>
+            </div>
+        </div>
+{% endblock%}

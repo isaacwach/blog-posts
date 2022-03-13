@@ -44,8 +44,8 @@ def create_app(config_name):
     bootstrap.init_app(app)
 
     # setting config
-    from .request import configure_request
-    configure_request(app)
+    #from .requests import configure_request
+    #configure_request(app)
 
     with app.app_context():
         db.create_all()

@@ -4,15 +4,25 @@ from flask_login import login_required, current_user
 from .. import db,photos
 from .forms import ProfileUpdate,BlogForm,CommentForm
 from ..models import User,Blog,Comment,Upvote,Downvote
+from ..requests import get_quotes 
 
 @main.route('/')
 def index():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    # title= "Zacs trendy news app"
+    quotes= get_quotes()
+    return render_template('index.html', quotes=quotes)
+
+@main.route('/blogs')
+def blogs():
     blogs = Blog.query.all()
     politics = Blog.query.filter_by(category = 'Politics').all() 
     sports = Blog.query.filter_by(category = 'Sports').all()
     celebrity = Blog.query.filter_by(category = 'Celebrity-gossip').all()
 
-    return render_template('index.html', blogs=blogs, politics=politics, sports=sports, celebrity=celebrity)
+    return render_template('blogs.html', blogs=blogs, politics=politics, sports=sports, celebrity=celebrity)
     
 @main.route('/create_new', methods = ['POST','GET'])
 @login_required

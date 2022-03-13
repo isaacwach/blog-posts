@@ -11,11 +11,11 @@
             <a class="nav-link active" aria-current="page" href="/">Inspirational Qoutes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Latest Blog Posts</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('main.blogs')}}">Latest Blog Posts</a>
           </li>
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('main.new_pitch')}}">Post a blog post</a>
+            <a class="nav-link" href="{{url_for('main.new-blog')}}">Post a blog post</a>
           </li>
           {% endif %}
         </ul>
