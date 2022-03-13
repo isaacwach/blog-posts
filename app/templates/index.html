@@ -3,11 +3,25 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid">
     
-    <h2>Daily Inspirational Quotes</h2>
-    <p>{{quotes.quote}}</p>
-    <p>{{quotes.author}}</p>
+  <div class="row">
+    <div class="col">
+        <h2>Daily Inspirational Quotes</h2>
+        <p>Get inspired with great quotes every time tou visit our blog</p>
+        <p>Visit the blogs page to view current blogs</p>
+        <div class="quote-details">
+            <p>Id:{{quotes.id}}</p>
+            <p>Author:{{quotes.author}}</p>
+            <p>Quote: {{quotes.quote}}</p>
+            <button href="{{quotes.permalink}}">View More Details</button>
+            
+        </div>
+    </div>
+    <div class="col">
+        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y29tcHV0ZXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+    </div>
+  </div>
     
 </div>
 
