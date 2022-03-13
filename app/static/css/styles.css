@@ -21,11 +21,11 @@
     border-bottom: 2px solid orange;
 }
 
-/* .main-base{
+.main-base{
     background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzB8fGNvbXB1dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
     background-repeat: no-repeat;
     background-size: cover;
-} */
+}
 
 .main-signup{
     color: white;
@@ -49,9 +49,11 @@ span{
 }
 .intro p {
     font-size: 24px;
+    color: white;
 }
 .intro h2 {
     font-size: 50px;
+    color: white;
 }
 .quote-details{
     border: 1px solid gray;
@@ -59,11 +61,12 @@ span{
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
-button {
-    width: 170px;
+.btn {
+    width: 200px;
     height: 50px;
     background-color: orange;
     color: white;
     border-radius: 30px;
     margin-left: 30px;
+    font-size: 17px;
 }
